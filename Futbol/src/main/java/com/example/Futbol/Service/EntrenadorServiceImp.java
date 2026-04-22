@@ -2,9 +2,11 @@ package com.example.Futbol.Service;
 
 import com.example.Futbol.Model.Entrenador;
 import com.example.Futbol.Repository.EntrenadorRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class EntrenadorServiceImp implements EntrenadorService {
 
     private final EntrenadorRepository entrenadorRepository;

@@ -1,6 +1,5 @@
 package com.example.Futbol.Model;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -33,7 +33,7 @@ public class EstadisticaJugadorController {
         return ResponseEntity.status(201).body(estadisticaJugadorService.guardarEstadisticaJugador(e));
 
     }
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<EstadisticaJugador> actualizarEstadisticaJugador(@PathVariable Long id,@RequestBody EstadisticaJugador e) {
         return ResponseEntity.ok(estadisticaJugadorService.actualizarEstadisticaJugador(id, e));
     }

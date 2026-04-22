@@ -15,15 +15,10 @@ public interface PartidoRepository extends JpaRepository<Partido,Long> {
     // (sumando goles_local cuando fue local + goles_visita cuando fue visitante)
     // COALESCE evita nulls → si no hay partidos regresa 0
 
-    @Query(
-            value = """
-               SELECT COALESCE(
-                    (SELECT SUM(goles_local) FROM partido WHERE equipo_local = :idEquipo)
-                    + (SELECT SUM(goles_visita)FROM partido WHERE equipo_visita = :idEquipo),
-                    0),
-                    """,
-            nativeQuery = true
-    )
+    @Query(value = "SELECT COALESCE(" +
+            "(SELECT SUM(goles_local) FROM partido WHERE equipo_local = :idEquipo), 0) + " +
+            "COALESCE((SELECT SUM(goles_visita) FROM partido WHERE equipo_visita = :idEquipo), 0)",
+            nativeQuery = true)
     Integer totalGolesByEquipo(@Param("idEquipo") Long idEquipo);
     // ── CONSULTA NATIVA 4 ─────────────────────────────────────────────────────
     // Obtener resultados de todos los partidos con los NOMBRES de los equipos

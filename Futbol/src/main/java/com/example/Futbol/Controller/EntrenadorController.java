@@ -28,7 +28,7 @@ public class EntrenadorController {
         return ResponseEntity.ok(entrenadorService.obtenerEntrenadorPorId(id));
     }
     @PostMapping
-    public ResponseEntity<Entrenador> guardarEntrenador(@PathVariable Entrenador e){
+    public ResponseEntity<Entrenador> guardarEntrenador(@RequestBody Entrenador e){
         Entrenador nuevo = entrenadorService.guardarEntrenador(e);
         return ResponseEntity.status(201).body(nuevo);
     }

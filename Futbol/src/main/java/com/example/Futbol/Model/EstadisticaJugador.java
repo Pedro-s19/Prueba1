@@ -1,6 +1,5 @@
 package com.example.Futbol.Model;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Estadistica Jugador")
+@Table(name = "estadistica_Jugador")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

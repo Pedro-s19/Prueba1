@@ -28,7 +28,7 @@ public class EquipoController {
        return ResponseEntity.ok(equipoService.obtenerEquipoById(id));
     }
     @PostMapping
-    public ResponseEntity<Equipo> guardarEquipo(@PathVariable Equipo equipo){
+    public ResponseEntity<Equipo> guardarEquipo(@RequestBody Equipo equipo){
         Equipo nuevo = equipoService.guardarEquipo(equipo);
         return ResponseEntity.status(201).body(nuevo);
     }

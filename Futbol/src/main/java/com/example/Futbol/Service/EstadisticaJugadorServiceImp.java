@@ -2,9 +2,10 @@ package com.example.Futbol.Service;
 
 import com.example.Futbol.Model.EstadisticaJugador;
 import com.example.Futbol.Repository.EstadisticaJugadorRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class EstadisticaJugadorServiceImp implements  EstadisticaJugadorService {
 
     private final EstadisticaJugadorRepository estadisticaJugadorRepository;

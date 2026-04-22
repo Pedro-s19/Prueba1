@@ -4,9 +4,10 @@ import com.example.Futbol.Model.Jugador;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface JugadorRepository extends JpaRepository<Jugador, Long> {
 
     // ── CONSULTA NATIVA 1 ─────────────────────────────────────────────────────
@@ -14,7 +15,7 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long> {
     // nativeQuery=true → se ejecuta SQL puro, no JPQL
     // :idEquipo → parámetro nombrado, viene del @Param("idEquipo")
     @Query(
-            value = "SELECT * FROM jugador WHERE id_equipo =idEquipo",
+            value = "SELECT * FROM jugador WHERE id_equipo = :idEquipo",
             nativeQuery = true
     )
     List<Jugador> findJugadoresByEquipo(@Param("idEquipo") Long idEquipo);
@@ -27,7 +28,7 @@ public interface JugadorRepository extends JpaRepository<Jugador, Long> {
             value = """ 
                 SELECT j.*
                 FROM jugador j
-                INNER JOIN estadistica_juagdor ej ON j.id_jugador = ej.id_jugador
+                INNER JOIN estadistica_jugador ej ON j.id_jugador = ej.id_jugador
                 GROUP BY j.id_jugador
                 HAVING SUM(ej.goles) > :minGoles
                 """,
