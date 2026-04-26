@@ -1,5 +1,6 @@
 package com.example.Futbol.Controller;
 
+import com.example.Futbol.Dto.ResultadoPartidoDTO;
 import com.example.Futbol.Model.Partido;
 import com.example.Futbol.Service.PartidoService;
 import org.apache.coyote.Response;
@@ -42,7 +43,7 @@ public class PartidoController {
         return ResponseEntity.ok(partidoService.totalGolesByEquipo(idEquipo));
     }
     @GetMapping("/resultados")
-    public ResponseEntity<List<Object[]>>resuladoConNombres(){
+    public ResponseEntity<List<ResultadoPartidoDTO>> resuladoConNombres() {
         return ResponseEntity.ok(partidoService.resuladoConNombres());
     }
 }
